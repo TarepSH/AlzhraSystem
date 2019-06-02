@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day: 2019-06-02
+  students: one
+
+two:
+  day: 2019-06-02
+  students: two
