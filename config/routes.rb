@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :activities
+  resources :trips
   resources :memorizationpages
   resources :memorizationparts
   resources :attendings

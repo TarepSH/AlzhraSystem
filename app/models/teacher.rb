@@ -1,3 +1,3 @@
 class Teacher < ApplicationRecord
-  belongs_to :classroom
+  has_one :classroom
 end

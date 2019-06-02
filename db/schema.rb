@@ -10,20 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_02_022837) do
-
-  create_table "activities", force: :cascade do |t|
-    t.string "title"
-    t.string "place"
-    t.date "activistdate"
-    t.datetime "startime"
-    t.datetime "endingtime"
-    t.integer "price"
-    t.integer "students_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["students_id"], name: "index_activities_on_students_id"
-  end
+ActiveRecord::Schema.define(version: 2019_06_02_025304) do
 
   create_table "attendings", force: :cascade do |t|
     t.date "day"
@@ -72,19 +59,17 @@ ActiveRecord::Schema.define(version: 2019_06_02_022837) do
     t.integer "linephone"
     t.integer "point"
     t.integer "classroom_id"
-    t.integer "activities_id"
-    t.integer "teacher_id"
     t.integer "attendings_id"
     t.integer "memorizationparts_id"
     t.integer "memorizationpage_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["activities_id"], name: "index_students_on_activities_id"
+    t.integer "trips_id"
     t.index ["attendings_id"], name: "index_students_on_attendings_id"
     t.index ["classroom_id"], name: "index_students_on_classroom_id"
     t.index ["memorizationpage_id"], name: "index_students_on_memorizationpage_id"
     t.index ["memorizationparts_id"], name: "index_students_on_memorizationparts_id"
-    t.index ["teacher_id"], name: "index_students_on_teacher_id"
+    t.index ["trips_id"], name: "index_students_on_trips_id"
   end
 
   create_table "teachers", force: :cascade do |t|
@@ -93,6 +78,19 @@ ActiveRecord::Schema.define(version: 2019_06_02_022837) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["classroom_id"], name: "index_teachers_on_classroom_id"
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.string "title"
+    t.string "place"
+    t.date "activistdate"
+    t.datetime "startime"
+    t.datetime "endingtime"
+    t.integer "price"
+    t.integer "students_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["students_id"], name: "index_trips_on_students_id"
   end
 
 end
