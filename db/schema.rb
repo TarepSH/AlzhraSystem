@@ -10,3 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 2019_06_02_015554) do
+
+  create_table "students", force: :cascade do |t|
+    t.string "fname"
+    t.string "lname"
+    t.string "fathername"
+    t.string "schoolname"
+    t.integer "schoolclass"
+    t.string "address"
+    t.date "dateofbritgh"
+    t.integer "age"
+    t.integer "mobilephone"
+    t.integer "linephone"
+    t.integer "point"
+    t.integer "classroom_id"
+    t.integer "activities_id"
+    t.integer "teacher_id"
+    t.integer "attendings_id"
+    t.integer "memorizationparts_id"
+    t.integer "memorizationpage_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["activities_id"], name: "index_students_on_activities_id"
+    t.index ["attendings_id"], name: "index_students_on_attendings_id"
+    t.index ["classroom_id"], name: "index_students_on_classroom_id"
+    t.index ["memorizationpage_id"], name: "index_students_on_memorizationpage_id"
+    t.index ["memorizationparts_id"], name: "index_students_on_memorizationparts_id"
+    t.index ["teacher_id"], name: "index_students_on_teacher_id"
+  end
+
+end
