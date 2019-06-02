@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Memorizationparts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Students</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @memorizationparts.each do |memorizationpart| %>
+      <tr>
+        <td><%= memorizationpart.name %></td>
+        <td><%= memorizationpart.students %></td>
+        <td><%= link_to 'Show', memorizationpart %></td>
+        <td><%= link_to 'Edit', edit_memorizationpart_path(memorizationpart) %></td>
+        <td><%= link_to 'Destroy', memorizationpart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Memorizationpart', new_memorizationpart_path %>

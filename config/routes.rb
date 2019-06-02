@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
+  resources :activities
   resources :memorizationpages
   resources :memorizationparts
-  resources :activists
   resources :attendings
   resources :teachers
   resources :classrooms

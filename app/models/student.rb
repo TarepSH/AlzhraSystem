@@ -1,8 +1,8 @@
 class Student < ApplicationRecord
   belongs_to :classroom
-  belongs_to :activities
+  has_many :activities
   belongs_to :teacher
-  belongs_to :attendings
-  belongs_to :memorizationparts
-  belongs_to :memorizationpage
+  has_many :attendings
+  has_many :memorizationparts
+  has_many :memorizationpage
 end
