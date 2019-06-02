@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_02_025304) do
+ActiveRecord::Schema.define(version: 2019_06_02_032104) do
 
   create_table "attendings", force: :cascade do |t|
     t.date "day"
@@ -65,10 +65,12 @@ ActiveRecord::Schema.define(version: 2019_06_02_025304) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "trips_id"
+    t.integer "trip_id"
     t.index ["attendings_id"], name: "index_students_on_attendings_id"
     t.index ["classroom_id"], name: "index_students_on_classroom_id"
     t.index ["memorizationpage_id"], name: "index_students_on_memorizationpage_id"
     t.index ["memorizationparts_id"], name: "index_students_on_memorizationparts_id"
+    t.index ["trip_id"], name: "index_students_on_trip_id"
     t.index ["trips_id"], name: "index_students_on_trips_id"
   end
 
@@ -81,7 +83,6 @@ ActiveRecord::Schema.define(version: 2019_06_02_025304) do
   end
 
   create_table "trips", force: :cascade do |t|
-    t.string "title"
     t.string "place"
     t.date "activistdate"
     t.datetime "startime"
@@ -90,6 +91,7 @@ ActiveRecord::Schema.define(version: 2019_06_02_025304) do
     t.integer "students_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
     t.index ["students_id"], name: "index_trips_on_students_id"
   end
 

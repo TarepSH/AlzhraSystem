@@ -1,3 +1,3 @@
 class Trip < ApplicationRecord
-  belongs_to :students
+  has_many :students
 end

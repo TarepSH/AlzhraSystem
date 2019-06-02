@@ -32,7 +32,12 @@
 
 <p>
   <strong>Students:</strong>
-  <%= @trip.students %>
+  <% @trip.students.each do |t| %>
+  <p>
+    <strong>studne name:</strong>
+    <%= t.fname %>
+  </p>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_trip_path(@trip) %> |
