@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :memorizationpages
+  resources :memorizationparts
   resources :activists
   resources :attendings
   resources :teachers
