@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :activists
   resources :attendings
   resources :teachers
   resources :classrooms
