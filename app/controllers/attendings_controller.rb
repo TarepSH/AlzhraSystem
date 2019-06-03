@@ -10,6 +10,7 @@ class AttendingsController < ApplicationController
   # GET /attendings/1
   # GET /attendings/1.json
   def show
+    @attending = Attending.find(params[:id])
   end
 
   # GET /attendings/new

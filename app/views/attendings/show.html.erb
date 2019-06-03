@@ -6,9 +6,15 @@
 </p>
 
 <p>
-  <strong>Students:</strong>
-  <%= @attending.students %>
-</p>
-
+  <p>
+    <strong>Students:</strong>
+    <% @attending.students.each do |t| %>
+    <p>
+      <strong>studne name:</strong>
+      <%= t.fname %>
+    </p>
+    <% end %>
+  </p>
+  
 <%= link_to 'Edit', edit_attending_path(@attending) %> |
 <%= link_to 'Back', attendings_path %>
