@@ -20,5 +20,29 @@
   <%= @classroom.teacher.name %>
 </p>
 
+<p>
+  <strong>Studnet Names: </strong> 
+  
+  <% @classroom.students.each do |t| %>
+  <p>
+    <%= t.fname %> - <%= t.point %> point - 
+      <% t.memorizationparts.each do |f| %>
+        <%= f.name %>
+      <% end %>     -     
+        <% t.memorizationpages.each do |p| %>
+        <%= p.name %>
+      <% end %>  -        
+          <% t.attendings.each do |a| %>
+            <%= a.day %>
+          <% end %>         
+
+
+
+    </p>
+  <% end %>
+</p>
+
+</p>
+
 <%= link_to 'Edit', edit_classroom_path(@classroom) %> |
 <%= link_to 'Back', classrooms_path %>

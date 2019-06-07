@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_02_125929) do
+ActiveRecord::Schema.define(version: 2019_06_07_041505) do
 
   create_table "attendings", force: :cascade do |t|
     t.date "day"
@@ -18,6 +18,13 @@ ActiveRecord::Schema.define(version: 2019_06_02_125929) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["students_id"], name: "index_attendings_on_students_id"
+  end
+
+  create_table "attendings_students", id: false, force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "attending_id"
+    t.index ["attending_id"], name: "index_attendings_students_on_attending_id"
+    t.index ["student_id"], name: "index_attendings_students_on_student_id"
   end
 
   create_table "classrooms", force: :cascade do |t|
@@ -35,6 +42,8 @@ ActiveRecord::Schema.define(version: 2019_06_02_125929) do
     t.integer "students_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "student_id"
+    t.index ["student_id"], name: "index_memorizationpages_on_student_id"
     t.index ["students_id"], name: "index_memorizationpages_on_students_id"
   end
 
@@ -43,6 +52,8 @@ ActiveRecord::Schema.define(version: 2019_06_02_125929) do
     t.integer "students_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "student_id"
+    t.index ["student_id"], name: "index_memorizationparts_on_student_id"
     t.index ["students_id"], name: "index_memorizationparts_on_students_id"
   end
 
@@ -92,6 +103,8 @@ ActiveRecord::Schema.define(version: 2019_06_02_125929) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
+    t.integer "student_id"
+    t.index ["student_id"], name: "index_trips_on_student_id"
     t.index ["students_id"], name: "index_trips_on_students_id"
   end
 
