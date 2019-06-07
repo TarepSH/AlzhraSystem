@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_07_042548) do
+ActiveRecord::Schema.define(version: 2019_06_07_044710) do
 
   create_table "attendings", force: :cascade do |t|
     t.date "day"
@@ -84,19 +84,9 @@ ActiveRecord::Schema.define(version: 2019_06_07_042548) do
     t.integer "linephone"
     t.integer "point"
     t.integer "classroom_id"
-    t.integer "memorizationparts_id"
-    t.integer "memorizationpage_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "trips_id"
-    t.integer "trip_id"
-    t.integer "attedning_id"
-    t.index ["attedning_id"], name: "index_students_on_attedning_id"
     t.index ["classroom_id"], name: "index_students_on_classroom_id"
-    t.index ["memorizationpage_id"], name: "index_students_on_memorizationpage_id"
-    t.index ["memorizationparts_id"], name: "index_students_on_memorizationparts_id"
-    t.index ["trip_id"], name: "index_students_on_trip_id"
-    t.index ["trips_id"], name: "index_students_on_trips_id"
   end
 
   create_table "teachers", force: :cascade do |t|
