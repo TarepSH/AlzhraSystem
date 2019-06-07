@@ -10,6 +10,8 @@ class TeachersController < ApplicationController
   # GET /teachers/1
   # GET /teachers/1.json
   def show
+    @teacher = Teacher.find(params[:id])
+    @classroom = Classroom.where(teacher_id: params[:id])
   end
 
   # GET /teachers/new
