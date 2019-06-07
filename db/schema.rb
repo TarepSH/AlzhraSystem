@@ -10,14 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_07_044710) do
+ActiveRecord::Schema.define(version: 2019_06_07_050208) do
 
   create_table "attendings", force: :cascade do |t|
     t.date "day"
-    t.integer "students_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["students_id"], name: "index_attendings_on_students_id"
   end
 
   create_table "attendings_students", id: false, force: :cascade do |t|
@@ -39,12 +37,8 @@ ActiveRecord::Schema.define(version: 2019_06_07_044710) do
 
   create_table "memorizationpages", force: :cascade do |t|
     t.string "name"
-    t.integer "students_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "student_id"
-    t.index ["student_id"], name: "index_memorizationpages_on_student_id"
-    t.index ["students_id"], name: "index_memorizationpages_on_students_id"
   end
 
   create_table "memorizationpages_students", id: false, force: :cascade do |t|
@@ -56,12 +50,8 @@ ActiveRecord::Schema.define(version: 2019_06_07_044710) do
 
   create_table "memorizationparts", force: :cascade do |t|
     t.string "name"
-    t.integer "students_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "student_id"
-    t.index ["student_id"], name: "index_memorizationparts_on_student_id"
-    t.index ["students_id"], name: "index_memorizationparts_on_students_id"
   end
 
   create_table "memorizationparts_students", id: false, force: :cascade do |t|
@@ -89,6 +79,13 @@ ActiveRecord::Schema.define(version: 2019_06_07_044710) do
     t.index ["classroom_id"], name: "index_students_on_classroom_id"
   end
 
+  create_table "students_trips", id: false, force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "trip_id"
+    t.index ["student_id"], name: "index_students_trips_on_student_id"
+    t.index ["trip_id"], name: "index_students_trips_on_trip_id"
+  end
+
   create_table "teachers", force: :cascade do |t|
     t.string "name"
     t.integer "classroom_id"
@@ -103,13 +100,9 @@ ActiveRecord::Schema.define(version: 2019_06_07_044710) do
     t.datetime "startime"
     t.datetime "endingtime"
     t.integer "price"
-    t.integer "students_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
-    t.integer "student_id"
-    t.index ["student_id"], name: "index_trips_on_student_id"
-    t.index ["students_id"], name: "index_trips_on_students_id"
   end
 
 end

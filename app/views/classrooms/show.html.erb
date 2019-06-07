@@ -34,8 +34,11 @@
       <% end %>  -        
           <% t.attendings.each do |a| %>
             <%= a.day %>
-          <% end %>         
-
+          <% end %>         -
+             
+          <% t.trips.each do |t| %>
+          <%= t.title %>
+        <% end %>      
 
 
     </p>
