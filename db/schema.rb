@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_07_041505) do
+ActiveRecord::Schema.define(version: 2019_06_07_042548) do
 
   create_table "attendings", force: :cascade do |t|
     t.date "day"
@@ -47,6 +47,13 @@ ActiveRecord::Schema.define(version: 2019_06_07_041505) do
     t.index ["students_id"], name: "index_memorizationpages_on_students_id"
   end
 
+  create_table "memorizationpages_students", id: false, force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "memorizationpage_id"
+    t.index ["memorizationpage_id"], name: "index_memorizationpages_students_on_memorizationpage_id"
+    t.index ["student_id"], name: "index_memorizationpages_students_on_student_id"
+  end
+
   create_table "memorizationparts", force: :cascade do |t|
     t.string "name"
     t.integer "students_id"
@@ -55,6 +62,13 @@ ActiveRecord::Schema.define(version: 2019_06_07_041505) do
     t.integer "student_id"
     t.index ["student_id"], name: "index_memorizationparts_on_student_id"
     t.index ["students_id"], name: "index_memorizationparts_on_students_id"
+  end
+
+  create_table "memorizationparts_students", id: false, force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "memorizationpart_id"
+    t.index ["memorizationpart_id"], name: "index_memorizationparts_students_on_memorizationpart_id"
+    t.index ["student_id"], name: "index_memorizationparts_students_on_student_id"
   end
 
   create_table "students", force: :cascade do |t|
