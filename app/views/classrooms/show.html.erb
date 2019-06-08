@@ -1,51 +1,65 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @classroom.name %>
+  <strong>اسم الحلقة:</strong>
+  حلقة <%= @classroom.name %> 
 </p>
 
 <p>
-  <strong>Book:</strong>
+  <strong>الكتاب:</strong>
   <%= @classroom.book %>
 </p>
 
 <p>
-  <strong>Level:</strong>
+  <strong>مستوى الحلقة:</strong>
   <%= @classroom.level %>
 </p>
 
 <p>
-  <strong>Teacher Name:</strong>
+  <strong>اسم المدرس:</strong>
   <%= @classroom.teacher.name %>
 </p>
 
 <p>
-  <strong>Studnet Names: </strong> 
+    <a href="#"><button type="button" class="btn btn-primary">إضافة دوام
+    </button></a>
+  </p>
   
-  <% @classroom.students.each do |t| %>
-  <p>
-    <%= t.fname %> - <%= t.point %> point - 
-      <% t.memorizationparts.each do |f| %>
-        <%= f.name %>
-      <% end %>     -     
-        <% t.memorizationpages.each do |p| %>
-        <%= p.name %>
-      <% end %>  -        
-          <% t.attendings.each do |a| %>
-            <%= a.day %>
-          <% end %>         -
-             
-          <% t.trips.each do |t| %>
-          <%= t.title %>
-        <% end %>      
 
 
-    </p>
-  <% end %>
-</p>
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+    <th scope="col">Id</th>
+    <th scope="col">الاسم</th>
+    <th scope="col">النقاط</th>
+    <th scope="col">الأجزاء</th>
+    <th scope="col">الصفحات</th>
+    <th scope="col">الدوام</th>
+    <th scope="col">تعديل</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <% @classroom.students.each do |t| %>
+      <tr>
+      <th scope="row"> <%= t.id %>  </th> 
+      <td> <%= t.fname %> <%= t.lname %>  </td> 
+      <td> <%= t.point %> نقطة </td> 
+      <td> <% t.memorizationparts.each do |f| %>
+              <%= f.name %> - 
+          <% end %> </td>
 
-</p>
-
-<%= link_to 'Edit', edit_classroom_path(@classroom) %> |
-<%= link_to 'Back', classrooms_path %>
+      <td> <% t.memorizationpages.each do |p| %>
+            <%= p.name %> -  
+          <% end %> </td>
+      <td>  <%= t.attendings.last.day %> </td>
+      <td>
+        
+            <%= link_to 'تعديل', edit_classroom_path(@classroom), :class => "btn btn-primary" %>   
+        
+      </td>
+       </tr>
+      <% end %>
+  </tbody>
+</table>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html dir="rtl" lang="ar">
   <head>
     <title>AlzhraSystem</title>
     <%= csrf_meta_tags %>
@@ -10,6 +10,39 @@
   </head>
 
   <body>
-    <%= yield %>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a class="navbar-brand" href="#">جامع الزهراء</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>          
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">الرئيسية</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">الطلاب</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">اتصل بنا</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">تسجيل الدخول</a>
+                </li>  
+              </ul>
+            </div>
+          
+        </nav>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <!-- Footer -->
+<footer class="page-footer font-small py-1 bg-dark text-white-50 ">
+    <div class="footer-copyright text-center py-3">© 2019 جامع الزهراء
+    </div>
+  </footer>
+
+  <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
+
   </body>
 </html>
