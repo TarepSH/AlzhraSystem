@@ -38,6 +38,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 #adding our uniqe gem
 gem 'rails_admin', '~> 1.3'
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
 
 
 group :development, :test do
