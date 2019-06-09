@@ -1,8 +1,15 @@
-<h1>Editing Student</h1>
+<h1>معلومات الطالب</h1>
 
 <%= render 'datashow', student: @student %>
-          
+          <hr>
+
 <%= render 'form', student: @student %>
 
 <%= link_to 'Show', @student %> |
 <%= link_to 'Back', students_path %>
+
+
+<%= link_to 'add 50 pint', edit_student_path(@student, :point => @student.point + 50), remote: true %> 
+
+
+

@@ -11,6 +11,42 @@
     </div>
   <% end %>
 
+  إضافة نقاط: 
+  <button type="button" class="btn btn-primary">
+      نقطة <span class="badge badge-light">25</span>
+  </button> - 
+  <button type="button" class="btn btn-primary">
+      نقطة <span class="badge badge-light">50</span>
+  </button> -
+  <button type="button" class="btn btn-primary">
+      نقطة <span class="badge badge-light">100</span>
+  </button> -
+  <button type="button" class="btn btn-primary">
+      نقطة <span class="badge badge-light">150</span>
+  </button> -
+  <button type="button" class="btn btn-primary">
+      نقطة <span class="badge badge-light">200</span>
+  </button> 
+
+  <br>  <br>
+
+  حذف نقاط: 
+  <button type="button" class="btn badge-danger">
+      نقطة <span class="badge badge-light">25-</span>
+  </button> - 
+  <button type="button" class="btn badge-danger">
+      نقطة <span class="badge badge-light">50-</span>
+  </button> - 
+  <button type="button" class="btn badge-danger">
+      نقطة <span class="badge badge-light">100-</span>
+  </button> - 
+  <button type="button" class="btn badge-danger">
+      نقطة <span class="badge badge-light">150-</span>
+  </button> - 
+  <button type="button" class="btn badge-danger">
+      نقطة <span class="badge badge-light">200-</span>
+  </button> 
+
   <div class="field">
     <%= form.label :point %>
     <%= form.number_field :point %>
@@ -39,4 +75,9 @@
   <div class="actions">
     <%= form.submit %>
   </div>
+<% end %>
+
+
+<%= button_to [ @student] do %>
+  50 <strong><%= @student.point %></strong>
 <% end %>
