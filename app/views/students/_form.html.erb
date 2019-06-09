@@ -11,50 +11,9 @@
     </div>
   <% end %>
 
-  إضافة نقاط: 
-  <button type="button" class="btn btn-primary">
-      نقطة <span class="badge badge-light">25</span>
-  </button> - 
-  <button type="button" class="btn btn-primary">
-      نقطة <span class="badge badge-light">50</span>
-  </button> -
-  <button type="button" class="btn btn-primary">
-      نقطة <span class="badge badge-light">100</span>
-  </button> -
-  <button type="button" class="btn btn-primary">
-      نقطة <span class="badge badge-light">150</span>
-  </button> -
-  <button type="button" class="btn btn-primary">
-      نقطة <span class="badge badge-light">200</span>
-  </button> 
-
-  <br>  <br>
-
-  حذف نقاط: 
-  <button type="button" class="btn badge-danger">
-      نقطة <span class="badge badge-light">25-</span>
-  </button> - 
-  <button type="button" class="btn badge-danger">
-      نقطة <span class="badge badge-light">50-</span>
-  </button> - 
-  <button type="button" class="btn badge-danger">
-      نقطة <span class="badge badge-light">100-</span>
-  </button> - 
-  <button type="button" class="btn badge-danger">
-      نقطة <span class="badge badge-light">150-</span>
-  </button> - 
-  <button type="button" class="btn badge-danger">
-      نقطة <span class="badge badge-light">200-</span>
-  </button> 
-
   <div class="field">
     <%= form.label :point %>
     <%= form.number_field :point %>
-  </div>
-
-  <div class="field">
-    <%= form.label :attendings_id %>
-    <%= form.text_field :attendings_id %>
   </div>
 
   <div class="field">
@@ -78,6 +37,63 @@
 <% end %>
 
 
-<%= button_to [ @student] do %>
-  50 <strong><%= @student.point %></strong>
-<% end %>
+
+
+إضافة نقاط: 
+<table>
+    <%= button_to '25 نقطة', {:controller => "students", :action => "update" ,
+    :point => @student.point + 25, id: @student  } , 
+    :method=> :patch,
+    class: "btn btn-primary"  %> - 
+
+    <%= button_to '50 نقطة', {:controller => "students", :action => "update" ,
+    :point => @student.point + 50, id: @student  } , 
+    :method=> :patch,
+    class: "btn btn-primary"  %> - 
+    
+    <%= button_to '100 نقطة', {:controller => "students", :action => "update" ,
+    :point => @student.point + 100, id: @student  } , 
+    :method=> :patch,
+    class: "btn btn-primary"  %> - 
+    
+    <%= button_to '150 نقطة', {:controller => "students", :action => "update" ,
+    :point => @student.point + 150, id: @student  } , 
+    :method=> :patch,
+    class: "btn btn-primary"  %> - 
+
+    <%= button_to '200 نقطة', {:controller => "students", :action => "update" ,
+    :point => @student.point + 200, id: @student  } , 
+    :method=> :patch,
+    class: "btn btn-primary"  %> 
+ </table>
+  <br>
+
+
+حذف نقاط: 
+<table>
+  <%= button_to '25 نقطة', {:controller => "students", :action => "update" ,
+  :point => @student.point - 25, id: @student  } , 
+  :method=> :patch,
+  class: "btn btn-danger"  %> - 
+
+  <%= button_to '50 نقطة', {:controller => "students", :action => "update" ,
+  :point => @student.point - 50, id: @student  } , 
+  :method=> :patch,
+  class: "btn btn-danger"  %> - 
+  
+  <%= button_to '100 نقطة', {:controller => "students", :action => "update" ,
+  :point => @student.point - 100, id: @student  } , 
+  :method=> :patch,
+  class: "btn btn-danger"  %> - 
+  
+  <%= button_to '150 نقطة', {:controller => "students", :action => "update" ,
+  :point => @student.point - 150, id: @student  } , 
+  :method=> :patch,
+  class: "btn btn-danger"  %> - 
+
+  <%= button_to '200 نقطة', {:controller => "students", :action => "update" ,
+  :point => @student.point - 200, id: @student  } , 
+  :method=> :patch,
+  class: "btn btn-danger"  %> 
+</table>
+
