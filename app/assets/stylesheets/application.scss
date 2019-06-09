@@ -21,3 +21,12 @@
     font-family: 'Cairo', sans-serif;
     text-align: right;
  }
+
+ .list-group{
+    overflow-y: scroll;
+    max-height: 200px;
+    max-width: 300px;
+    margin-bottom: 10px;
+    -webkit-overflow-scrolling: touch;
+}
+

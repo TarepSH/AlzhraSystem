@@ -1,0 +1,104 @@
+
+<p>
+        <strong>الاسم: </strong>
+        <%= @student.fname %> - <%= @student.lname %>
+      </p>
+      
+      <p>
+      
+      <p>
+        <strong>اسم الأب: </strong>
+        <%= @student.fathername %>
+      </p>
+      
+      <p>
+        <strong>المدرسة: </strong>
+        <%= @student.schoolname %>
+      </p>
+      
+      <p>
+        <strong>الصف: </strong>
+        <%= @student.schoolclass %>
+      </p>
+      
+      <p>
+        <strong>العنوان: </strong>
+        <%= @student.address %>
+      </p>
+      
+      <p>
+        <strong>تاريخ الميلاد: </strong>
+        <%= @student.dateofbritgh %>
+      </p>
+      
+      <p>
+        <strong>العمر: </strong>
+        <%= @student.age %>
+      </p>
+      
+      <p>
+        <strong>رقم الموبايل: </strong>
+        <%= @student.mobilephone %>
+      </p>
+
+      <p>
+            <strong>رقم الموبايل 2: </strong>
+            <%= @student.mobilephon2 %>
+        </p>
+      
+      <p>
+        <strong>رقم الهاتف الأرضي: </strong>
+        <%= @student.linephone %>
+      </p>
+      
+      <p>
+        <strong>النقاط: </strong>
+        <%= @student.point %>
+      </p>
+      
+      <p>
+        <strong>الحلقة: </strong>
+        <%= @student.classroom.name %>
+      </p>
+      
+      
+      <p>
+        <strong>الأجزاء المحفوظة: </strong>
+        <ul class="list-group">
+        <% @student.memorizationparts.each do |f| %>
+        <li class="list-group-item"> <%= f.name %> </li>  
+      <% end %> 
+      </ul>
+      
+      </p>
+      
+      <p>
+        <strong>الصفحات المحفوظة: </strong> 
+        <ul class="list-group">
+         <% @student.memorizationpages.each do |p| %>
+         <li class="list-group-item"> <%= p.name %> </li>  
+        <% end %> 
+      </ul>
+        </p>   
+          
+        <p>
+            <strong>الحضور: </strong>
+            <ul class="list-group">
+      
+            <% @student.attendings.each do |f| %>
+            <li class="list-group-item"> <%= f.day %> </li>
+          <% end %> 
+            </ul>
+          </p>
+      
+          <p>
+              <strong>الأنشطة: </strong>
+              <ul class="list-group">
+        
+              <% @student.trips.each do |f| %>
+              <li class="list-group-item"> <%= f.title %> </li>
+            <% end %> 
+              </ul>
+            </p>
+        
+          
