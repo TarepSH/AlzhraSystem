@@ -24,10 +24,13 @@
                   <a class="nav-link" href="#">الطلاب</a>
                 </li>
                 <li class="nav-item">
+                    <%= link_to  "الحلقات", classrooms_path , class: "nav-link" %>
+                  </li>
+                <li class="nav-item">
                     <a class="nav-link" href="#">اتصل بنا</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">تسجيل الدخول</a>
+                  <%= link_to  "تسجيل الدخول", user_session_path , class: "nav-link" %>
                 </li>  
               </ul>
             </div>
