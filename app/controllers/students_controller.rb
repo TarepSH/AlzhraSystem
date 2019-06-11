@@ -19,6 +19,7 @@ class StudentsController < ApplicationController
 
   # GET /students/1/edit
   def edit
+    @memorizationparts = Memorizationpart.all
   end
 
   # POST /students
@@ -41,7 +42,8 @@ class StudentsController < ApplicationController
   # PATCH/PUT /students/1.json
   def update
     respond_to do |format|
-      if @student.update(student_params)
+      if @student.update(student_params) or @student.memorizationparts << Memorizationpart.find(params["student"]["memorizationpart_ids"])
+
         format.html { redirect_to @student, notice: 'Student was successfully updated.' }
         format.json { render :show, status: :ok, location: @student }
       else
@@ -69,6 +71,6 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.permit(:fname, :lname, :fathername, :schoolname, :schoolclass, :address, :dateofbritgh, :age, :mobilephone, :linephone, :point, :classroom_id, :activities_id, :teacher_id, :attendings_id, :memorizationparts_id, :memorizationpage_id)
+      params.permit(:fname, :lname, :fathername, :schoolname, :schoolclass, :address, :dateofbritgh, :age, :mobilephone, :linephone, :point, :classroom_id, :studnet_id, :memorizationpart_ids)
     end
 end

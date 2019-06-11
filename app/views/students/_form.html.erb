@@ -1,42 +1,10 @@
-<%= form_with(model: student, local: true) do |form| %>
-  <% if student.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
 
-      <ul>
-      <% student.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :point %>
-    <%= form.number_field :point %>
-  </div>
-
-  <div class="field">
-    <%= form.label :memorizationparts_id %>
-    <%= form.text_field :memorizationparts_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :memorizationpage_id %>
-    <%= form.text_field :memorizationpage_id %>
-  </div>
-
-  <div class="field">
-      <%= form.label :memorizationpage_id %>
-      <%= form.text_field :memorizationpage_id %>
-    </div>
-  
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<%= form_for @student do |form| %>
+<%= form.select :memorizationpart_ids, options_from_collection_for_select(Memorizationpart.all, :id, :name), :prompt => "Select Clients", :multiple => true %>
+<%= form.submit class: 'btn btn-primary' %>
 <% end %>
 
-
+  
 
 
 إضافة نقاط: 
@@ -96,4 +64,6 @@
   :method=> :patch,
   class: "btn btn-danger"  %> 
 </table>
+
+
 
