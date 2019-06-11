@@ -8,9 +8,3 @@
 <%= link_to 'Show', @student %> |
 <%= link_to 'Back', students_path %>
 
-
-
-<%= form_for @student do |form| %>
-  <%= form.select :memorizationpart_ids, options_from_collection_for_select(Memorizationpart.all, :id, :name), :prompt => "Select Clients", :multiple => true %>
-  <%= form.submit class: 'btn btn-primary' %>
-<% end %>

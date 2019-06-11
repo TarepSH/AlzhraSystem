@@ -41,9 +41,11 @@ class StudentsController < ApplicationController
   # PATCH/PUT /students/1
   # PATCH/PUT /students/1.json
   def update
-    respond_to do |format|
-      if @student.update(student_params) or @student.memorizationparts << Memorizationpart.find(params["student"]["memorizationpart_ids"])
+    #mamer = params["student"]["memorizationpart_ids"]
+    #@student.memorizationparts << Memorizationpart.find(params["student"]["memorizationpart_ids"])
 
+    respond_to do |format|
+      if @student.update(student_params) 
         format.html { redirect_to @student, notice: 'Student was successfully updated.' }
         format.json { render :show, status: :ok, location: @student }
       else

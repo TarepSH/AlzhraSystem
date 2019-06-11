@@ -36,7 +36,7 @@
     <th scope="col">الأجزاء</th>
     <th scope="col">الصفحات</th>
     <th scope="col">الدوام</th>
-    <th scope="col">تعديل</th>
+    <th scope="col">عرض</th>
     </tr>
   </thead>
   <tbody>
@@ -56,7 +56,7 @@
       <td>  <%= t.attendings.last.day %> </td>
       <td>
         
-            <%= link_to 'تعديل', edit_student_path(t), :class => "btn btn-primary" %>   
+            <%= link_to 'عرض', student_path(t), :class => "btn btn-primary" %>   
         
       </td>
        </tr>
