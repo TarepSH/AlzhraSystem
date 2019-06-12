@@ -7,7 +7,6 @@ class CreateTrips < ActiveRecord::Migration[5.2]
       t.datetime :startime
       t.datetime :endingtime
       t.integer :price
-      t.references :students, foreign_key: true
 
       t.timestamps
     end
