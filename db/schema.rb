@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 2019_06_11_231624) do
   end
 
   create_table "attendings_students", id: false, force: :cascade do |t|
-    t.integer "student_id"
-    t.integer "attending_id"
+    t.bigint "student_id"
+    t.bigint "attending_id"
     t.index ["attending_id"], name: "index_attendings_students_on_attending_id"
     t.index ["student_id"], name: "index_attendings_students_on_student_id"
   end
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2019_06_11_231624) do
     t.string "name"
     t.string "book"
     t.integer "level"
-    t.integer "teacher_id"
+    t.bigint "teacher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["teacher_id"], name: "index_classrooms_on_teacher_id"
@@ -45,8 +45,8 @@ ActiveRecord::Schema.define(version: 2019_06_11_231624) do
   end
 
   create_table "memorizationpages_students", id: false, force: :cascade do |t|
-    t.integer "student_id"
-    t.integer "memorizationpage_id"
+    t.bigint "student_id"
+    t.bigint "memorizationpage_id"
     t.index ["memorizationpage_id"], name: "index_memorizationpages_students_on_memorizationpage_id"
     t.index ["student_id"], name: "index_memorizationpages_students_on_student_id"
   end
@@ -58,8 +58,8 @@ ActiveRecord::Schema.define(version: 2019_06_11_231624) do
   end
 
   create_table "memorizationparts_students", id: false, force: :cascade do |t|
-    t.integer "student_id"
-    t.integer "memorizationpart_id"
+    t.bigint "student_id"
+    t.bigint "memorizationpart_id"
     t.index ["memorizationpart_id"], name: "index_memorizationparts_students_on_memorizationpart_id"
     t.index ["student_id"], name: "index_memorizationparts_students_on_student_id"
   end
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 2019_06_11_231624) do
     t.integer "mobilephone"
     t.integer "linephone"
     t.integer "point"
-    t.integer "classroom_id"
+    t.bigint "classroom_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "mobilephon2"
@@ -84,21 +84,20 @@ ActiveRecord::Schema.define(version: 2019_06_11_231624) do
   end
 
   create_table "students_trips", id: false, force: :cascade do |t|
-    t.integer "student_id"
-    t.integer "trip_id"
+    t.bigint "student_id"
+    t.bigint "trip_id"
     t.index ["student_id"], name: "index_students_trips_on_student_id"
     t.index ["trip_id"], name: "index_students_trips_on_trip_id"
   end
 
   create_table "teachers", force: :cascade do |t|
     t.string "name"
-    t.integer "classroom_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["classroom_id"], name: "index_teachers_on_classroom_id"
   end
 
   create_table "trips", force: :cascade do |t|
+    t.string "title"
     t.string "place"
     t.date "activistdate"
     t.datetime "startime"
@@ -106,7 +105,6 @@ ActiveRecord::Schema.define(version: 2019_06_11_231624) do
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "title"
   end
 
   create_table "users", force: :cascade do |t|
@@ -122,4 +120,6 @@ ActiveRecord::Schema.define(version: 2019_06_11_231624) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "classrooms", "teachers"
+  add_foreign_key "students", "classrooms"
 end
