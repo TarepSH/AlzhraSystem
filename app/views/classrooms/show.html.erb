@@ -32,6 +32,8 @@
     <tr>
     <th scope="col">Id</th>
     <th scope="col">الاسم</th>
+    <th scope="col">code</th>
+
     <th scope="col">النقاط</th>
     <th scope="col">الأجزاء</th>
     <th scope="col">الصفحات</th>
@@ -44,7 +46,12 @@
       <% @classroom.students.each do |t| %>
       <tr>
       <th scope="row"> <%= t.id %>  </th> 
-      <td> <%= t.fname %> <%= t.lname %>  </td> 
+      <td> <%= t.fname %> </br>   حلقة <%= @classroom.name %> 
+      <%= t.lname %>  </td> 
+
+<td>    <%= image_tag("/student-barcode/bcs_S ("+t.id.to_s+").png", :alt => "rss feed") %>
+</td>
+
       <td> <%= t.point %> نقطة </td> 
       <td> <% t.memorizationparts.each do |f| %>
               <%= f.name %> - 
@@ -53,7 +60,7 @@
       <td> <% t.memorizationpages.each do |p| %>
             <%= p.name %> -  
           <% end %> </td>
-      <td>  <%= t.attendings.last.day %> </td>
+      <td>  <%# t.attendings.last.day.try %> </td>
       <td>
         
             <%= link_to 'عرض', student_path(t), :class => "btn btn-primary" %>   

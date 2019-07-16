@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>اسم الحلقة:</strong>
+  حلقة <%= @classroom.name %> 
+</p>
+
+<p>
+  <strong>الكتاب:</strong>
+  <%= @classroom.book %>
+</p>
+
+<p>
+  <strong>مستوى الحلقة:</strong>
+  <%= @classroom.level %>
+</p>
+
+<p>
+  <strong>اسم المدرس:</strong>
+  <%= @classroom.teacher.name %>
+</p>
+
+<p>
+    <a href="#"><button type="button" class="btn btn-primary">إضافة دوام
+    </button></a>
+  </p>
+  
+
+
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+    <th scope="col">Id</th>
+    <th scope="col">الاسم</th>
+    <th scope="col">النقاط</th>
+    <th scope="col">الأجزاء</th>
+    <th scope="col">الصفحات</th>
+    <th scope="col">الدوام</th>
+    <th scope="col">عرض</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <% @classroom.students.each do |t| %>
+      <tr>
+      <th scope="row"> <%= t.id %>  </th> 
+      <td> <%= t.fname %> </br> test <%# t.lname %>  </td> 
+      <td> <%= t.point %> نقطة </td> 
+      <td> <% t.memorizationparts.each do |f| %>
+              <%= f.name %> - 
+          <% end %> </td>
+
+      <td> <% t.memorizationpages.each do |p| %>
+            <%= p.name %> -  
+          <% end %> </td>
+      <td>  <%# t.attendings.last.day.try %> </td>
+      <td>
+        
+            <%= link_to 'عرض', student_path(t), :class => "btn btn-primary" %>   
+        
+      </td>
+       </tr>
+      <% end %>
+  </tbody>
+</table>
