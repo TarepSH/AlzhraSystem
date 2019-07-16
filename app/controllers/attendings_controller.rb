@@ -4,7 +4,7 @@ class AttendingsController < ApplicationController
   # GET /attendings
   # GET /attendings.json
   def index
-    @attendings = Attending.all
+    @attendings = Attending.where(day:[params[:startday]..params[:endday]]).find_each
   end
 
   # GET /attendings/1
@@ -70,6 +70,8 @@ class AttendingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attending_params
-      params.require(:attending).permit(:day, :students_id)
+      params.require(:attending).permit(:day, :students_id, :startday, :endday)
     end
 end
+
+

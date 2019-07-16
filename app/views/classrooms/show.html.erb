@@ -21,8 +21,11 @@
 </p>
 
 <p>
-    <a href="#"><button type="button" class="btn btn-primary">إضافة دوام
-    </button></a>
+<div class="btn btn-primary ">
+
+<%= link_to 'طباعة', controller: "classrooms", action: "printclass", id: @classroom, class: "btn" %> 
+</div>
+
   </p>
   
 
@@ -46,7 +49,7 @@
       <% @classroom.students.each do |t| %>
       <tr>
       <th scope="row"> <%= t.id %>  </th> 
-      <td> <%= t.fname %> </br>   حلقة <%= @classroom.name %> 
+      <td> <%= t.fname %>  
       <%= t.lname %>  </td> 
 
 <td>    <%= image_tag("/student-barcode/bcs_S ("+t.id.to_s+").png", :alt => "rss feed") %>

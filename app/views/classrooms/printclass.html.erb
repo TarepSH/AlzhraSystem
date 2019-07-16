@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>اسم الحلقة:</strong>
+  حلقة <%= @classroom.name %> 
+</p>
+
+<p>
+  <strong>الكتاب:</strong>
+  <%= @classroom.book %>
+</p>
+
+<p>
+  <strong>مستوى الحلقة:</strong>
+  <%= @classroom.level %>
+</p>
+
+<p>
+  <strong>اسم المدرس:</strong>
+  <%= @classroom.teacher.name %>
+</p>
+
+<p>
+    <a href="#"><button type="button" class="btn btn-primary">طباعة
+    </button></a>
+  </p>
+  
+
+
+<table class="table">
+    <tr>
+    </tr>
+  <tbody>
+    
+      <% @classroom.students.each do |t| %>
+      <tr>
+      <td> رقم الطالب: </br> <p class="h1"><%= t.id %></p></td>
+      <td> <p class="h2"><%= t.fname %></p> </br>  <%= @classroom.name %> 
+      </td> 
+
+<td>    <%= image_tag("/student-barcode/bcs_S ("+t.id.to_s+").png", :alt => "rss feed") %>
+</td>
+
+
+      <% end %>
+  </tbody>
+</table>

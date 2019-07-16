@@ -1,5 +1,5 @@
 class ClassroomsController < ApplicationController
-  before_action :set_classroom, only: [:show, :edit, :update, :destroy]
+  before_action :set_classroom, only: [:show, :printclass, :edit, :update, :destroy]
 
   # GET /classrooms
   # GET /classrooms.json
@@ -10,6 +10,9 @@ class ClassroomsController < ApplicationController
   # GET /classrooms/1
   # GET /classrooms/1.json
   def show
+  end
+
+  def printclass
   end
 
   # GET /classrooms/new

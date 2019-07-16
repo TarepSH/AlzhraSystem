@@ -1,27 +1,44 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Attendings</h1>
+<h1>أيام الحضور</h1>
+</br>
 
-<table>
-  <thead>
-    <tr>
-      <th>Day</th>
-      <th>Students</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+اختار تاريخ: 
+<div class="dropdown show">
+  <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    اختار تاريخ
+  </a>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+  <% (2019..2021).each do |y| %>
 
-  <tbody>
-    <% @attendings.each do |attending| %>
-      <tr>
-        <td><%= attending.day %></td>
-        <td><%= attending.students %></td>
-        <td><%= link_to 'Show', attending %></td>
-        <td><%= link_to 'Edit', edit_attending_path(attending) %></td>
-        <td><%= link_to 'Destroy', attending, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+  <% (1..12).each do |m| %>
+    
+    <%= link_to m.to_s + " / " + y.to_s, controller: "attendings", action: "index", startday: "1/" + m.to_s + "/" + y.to_s, endday: "1/" + m.next.to_s + "/" + y.to_s, Class: "dropdown-item"  %> 
+    </br>
+    
+      <% end %>
+
+  <% end %>
+
+    </div>
+
+    <br/>
+</div>  
+<table class="table">
+<tbody>
+
+<% @attendings.each do |attending| %>
+  <tr>
+  <td> DAY ID: </br> <p class="h1"><%= attending.id %></p></td>
+  <td> <p class="h2"><%= attending.day %></p> 
+  </td> 
+
+<td> <%= image_tag("/date-barcode/bcs_D ("+attending.id.to_s+").png", :alt => attending.id.to_s + "Barcode") %>
+</td>
+
+
+  <% end %>
+</tbody>
 </table>
 
 <br>
